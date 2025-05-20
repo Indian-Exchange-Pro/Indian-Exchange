@@ -1,0 +1,110 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Pastel Glassmorphism Light Theme */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 200 87% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 192 64% 47%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 200 93% 56%;
+    --accent-foreground: 226 80% 98%;
+
+    --destructive: 0 81% 60%;
+    --destructive-foreground: 226 80% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 200 93% 56%;
+
+    --radius: 1rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 200 87% 57%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 10% 3.9%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 200 93% 56%;
+  }
+
+  .dark {
+    /* Pastel, clean dark with some glass */
+    --background: 220 24% 16%;
+    --foreground: 226 80% 98%;
+    --card: 220 20% 23%;
+    --card-foreground: 226 80% 98%;
+    --popover: 220 20% 23%;
+    --popover-foreground: 226 80% 98%;
+    --primary: 200 87% 57%;
+    --primary-foreground: 226 80% 98%;
+    --secondary: 200 36% 37%;
+    --secondary-foreground: 226 80% 98%;
+    --muted: 220 16% 19%;
+    --muted-foreground: 220 22% 68%;
+    --accent: 199 93% 47%;
+    --accent-foreground: 226 80% 98%;
+    --destructive: 0 64% 38%;
+    --destructive-foreground: 226 80% 98%;
+    --border: 218 20% 22%;
+    --input: 218 20% 22%;
+    --ring: 199 93% 56%;
+    --radius: 1rem;
+    --sidebar-background: 220 25% 15%;
+    --sidebar-foreground: 226 80% 98%;
+    --sidebar-primary: 200 87% 57%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 30% 25%;
+    --sidebar-accent-foreground: 226 80% 98%;
+    --sidebar-border: 220 25% 20%;
+    --sidebar-ring: 200 93% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background: linear-gradient(120deg, #D3E4FD 0%, #F1F0FB 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-lg border border-white/30 shadow-2xl rounded-2xl;
+  }
+  .input-crypto {
+    @apply px-4 py-3 rounded-lg border border-gray-300 w-full focus:outline-none focus:ring-2 focus:ring-crypto-blue focus:border-transparent bg-white/95 text-gray-900;
+  }
+  .btn-primary {
+    @apply bg-crypto-blue hover:bg-crypto-skyblue text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-base tracking-wide;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-crypto-blue via-crypto-ocean to-blue-800 bg-clip-text text-transparent;
+  }
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-crypto-blue via-crypto-ocean to-crypto-blue bg-clip-text text-transparent;
+  }
+}
