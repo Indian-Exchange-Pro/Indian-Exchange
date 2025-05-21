@@ -16,18 +16,18 @@ const allowedOrigins = [
   "http://localhost:8080",
   "https://indian-exchange.vercel.app",
   "https://www.indianexchange.pro",
+  "https://indianexchange.pro"
 ];
 
 app.use(
   cors({
-    origin: "*",
-    // (origin, callback) => {
-    //   // Allow requests with no origin (like mobile apps or curl)
-    //   if (!origin || allowedOrigins.includes(origin)) {
-    //     return callback(null, true);
-    //   }
-    //   callback(new Error("Not allowed by CORS"));
-    // },
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps or curl)
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
