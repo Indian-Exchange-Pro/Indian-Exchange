@@ -11,9 +11,9 @@ import Cookies from "js-cookie";
 export const AUTH_LOCAL_STORAGE_KEY = "ia-auth-token";
 export const AUTH_LOCAL_STORAGE_USER_PROFILE_KEY = "ia-user-profile";
 
-// export const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+export const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 // export const BASE_URL = "https://indian-exchange.onrender.com/api"; //vercel url updated
-export const BASE_URL = "http://localhost:5000/api"; //vercel url
+// export const BASE_URL = "http://localhost:5000/api"; //vercel url
 
 // Get tokens from local storage
 // const getAccessToken = (): string | undefined => Cookies.get("ACCESS_TOKEN");
