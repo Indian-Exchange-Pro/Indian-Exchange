@@ -18,11 +18,15 @@ export const getMyReferrals = async (req, res) => {
         status: "Approved",
       }).sort({ createdAt: 1 }); // get first recharge
 
+      const rechargeAmount = rechargeTxn?.amount || 0;
+      const bonusEarned =Math.floor((Number(rechargeAmount) * 5) / 100 * 100) / 100; // 5% of the recharge amount
+      console.log("bonus eraned", bonusEarned);
+
       detailedReferrals.push({
         name: user.name,
         email: user.email,
         mobile: user.mobile,
-        bonusEarned: rechargeTxn ? 100 : 0,
+        bonusEarned:bonusEarned,
         rewardedAt: rechargeTxn ? rechargeTxn.createdAt : null,
       });
     }

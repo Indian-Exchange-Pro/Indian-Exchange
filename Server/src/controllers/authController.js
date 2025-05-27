@@ -106,8 +106,10 @@ export const registerUser = async (req, res) => {
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await User.findOne({ email });
-
+    const user = await User.findOne( {$or: [
+        { email: email },     // exact match on email
+        { mobile: email },    // if they enter mobile number instead
+      ],});
     if (user && (await user.matchPassword(password))) {
       const token = generateToken(user._id, user.role);
       const refreshToken = generateRefreshToken(user._id, user.role);
