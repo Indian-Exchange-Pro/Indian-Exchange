@@ -195,13 +195,19 @@ const SignupPage = () => {
         setShowOtpDialog(false);
         Navigation("/login");
       }
-    } catch (error) {
-      toast({
-        title: "User Registration Failed",
-        description: "Failed to register user, Please try again.",
-        variant: "destructive",
-      });
-    } finally {
+    } catch (error: any) {
+    // Extract message from error response (for Axios or similar)
+    const errorMessage =
+      error?.response?.data?.message || // API error
+      error?.message ||                // JS error
+      "Failed to register user, Please try again."; // fallback
+
+    toast({
+      title: "User Registration Failed",
+      description: errorMessage,
+      variant: "destructive",
+    });
+  }  finally {
       setIsSignupLoading(false);
     }
 
